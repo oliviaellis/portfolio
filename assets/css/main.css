@@ -5,6 +5,7 @@ html {
 body {
   height: 100%;
   margin: 0;
+	margin-top: 10%;
   overflow: hidden;
   background: linear-gradient(to bottom, #c7c7c7, rgb(147, 147, 147));
 	font-family: 'Lora', sans-serif;
