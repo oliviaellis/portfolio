@@ -1,20 +1,33 @@
 const injectWeather = (weather) => {
+  let holder = document.getElementById('body');
+  let rain_div = document.createElement('div');
+  rain_div.className = "rain front-row";
   switch (weather) {
-    case "Sun":
-    console.log("It's sunny");
-    break;
-    case "Rain":
-    console.log("It's rainy");
-    let rain_div = document.createElement('div');
-    rain_div.className = "rain front-row";
-    let holder = document.getElementById('body');
-    holder.appendChild(rain_div);
-    makeItRain();
-    break;
+    case "Clear":
+      console.log("It's sunny");
+      holder.className = "clear";
+      break;
+    case "Rain"||"Drizzle":
+      console.log("It's rainy");
+      holder.appendChild(rain_div);
+      makeItRain();
+      break;
+    case "Clouds":
+      console.log("It's cloudy");
+      holder.className = "clouds";
+      break;
+    case "Thunderstorm":
+      console.log("Storms a-brewin'.");
+      holder.appendChild(rain_div);
+      makeItRain();
+      break;
+    case "Snow":
+      console.log("It's snowing!");
+      break;
     default:
-    console.log(weather);
-    console.log("I'm not sure what the weather is like right now.");
-    break;
+      console.log(weather);
+      console.log("I'm not sure what the weather is like right now.");
+      break;
   }
 
 }
@@ -27,7 +40,7 @@ const getWeather = () => {
     let data = JSON.parse(this.response)
 
     if (request.status >= 200 && request.status < 400) {
-      // console.log(data);
+      console.log(data);
       let weather = data.weather[0].main;
       // console.log(weather);
       injectWeather(weather);
