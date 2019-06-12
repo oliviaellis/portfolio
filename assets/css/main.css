@@ -8,8 +8,12 @@ body {
   overflow: hidden;
 }
 
+#wrapper {
+	display: none;
+}
+
 .clouds {
-	background: linear-gradient(to bottom, rgb(156, 156, 156), rgb(94, 94, 94));
+	background: linear-gradient(to bottom, #ccc, #aaa);
 }
 
 .clear {
