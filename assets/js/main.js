@@ -11,6 +11,7 @@ const injectWeather = (weather) => {
       break;
     case "Rain"||"Drizzle":
       console.log("It's rainy");
+      holder.className = 'rain-bg';
       holder.appendChild(rain_div);
       weather_display.innerHTML = "It's raining in New York. Makes me want to stay home and play video games.";
       makeItRain();
@@ -84,3 +85,27 @@ const makeItRain = function() {
   $('.rain.front-row').append(drops);
   $('.rain.back-row').append(backDrops);
 }
+
+let sections = Array.prototype.slice.call(document.querySelectorAll('a.item'));
+
+replaceOthers = (element) => {
+  let others = sections.pop(element)
+  console.log(others)
+}
+
+sections.forEach(el => el.addEventListener('click', function() {
+  console.log("Firing");
+  let last = el.innerHTML.slice(-1);
+  let newText = el.innerHTML;
+  switch (last) {
+    case "?":
+
+    let b = el.innerHTML.replace("?", ":")
+    el.innerHTML = b;
+    replaceOthers(el);
+    break;
+    default:
+    console.log("What happened?");
+    break;
+  }
+}))
